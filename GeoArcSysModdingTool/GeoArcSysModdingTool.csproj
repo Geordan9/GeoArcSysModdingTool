@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{17F9C459-739F-40F7-8B10-82078E7C6652}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GeoArcSysModdingTool</RootNamespace>
+    <AssemblyName>GeoArcSysModdingTool</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <LangVersion>8.0</LangVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>GeoArcSysModdingTool.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>App.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>2A6B0ACAC2664E2689181C52912640FC33703055</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GeoCubeWorldHackTool_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Costura, Version=4.1.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Costura.Fody.4.1.0\lib\net40\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsAPICodePack, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\WindowsAPICodePack\WindowsAPICodePack\bin\Release\WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Converters\StringDictionaryMultiConverter.cs" />
+    <Compile Include="Converters\ReverseBoolConverter.cs" />
+    <Compile Include="Converters\BoolToIndexConverter.cs" />
+    <Compile Include="Converters\PaletteHIPToBoolConverter.cs" />
+    <Compile Include="Converters\SwitchBindingExtension.cs" />
+    <Compile Include="Converters\DirItemToThumbnailConverter.cs" />
+    <Compile Include="Converters\NullToVisConverter.cs" />
+    <Compile Include="Converters\NullConverter.cs" />
+    <Compile Include="Converters\DataTypeConverter.cs" />
+    <Compile Include="Converters\IconImageConverter.cs" />
+    <Compile Include="Converters\FormatKbSizeConverter.cs" />
+    <Compile Include="Converters\ExtensionToUpperConverter.cs" />
+    <Compile Include="Converters\UintToStringConverter.cs" />
+    <Compile Include="Converters\VisToBool.cs" />
+    <Compile Include="Converters\ByteToIndexConverter.cs" />
+    <Compile Include="CustomSettingsProvider.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="Models\HackCatagory.cs" />
+    <Compile Include="Models\HackGroup.cs" />
+    <Compile Include="Models\PreviewImage.cs" />
+    <Compile Include="Utils\BinaryTools.cs" />
+    <Compile Include="Utils\ExploreTools.cs" />
+    <Compile Include="Utils\Extensions\ArrayExtension.cs" />
+    <Compile Include="Utils\Extensions\BitmapExtension.cs" />
+    <Compile Include="Utils\Extensions\BitmapSourceExtension.cs" />
+    <Compile Include="Utils\Extensions\DataGridExtensions.cs" />
+    <Compile Include="Utils\Extensions\BitmapPaletteExtension.cs" />
+    <Compile Include="Utils\Extensions\DrawingColorExtension.cs" />
+    <Compile Include="Utils\Extensions\DrawingPixelFormatExtension.cs" />
+    <Compile Include="Utils\Extensions\FileSystemInfoExtension.cs" />
+    <Compile Include="Utils\Extensions\FrameworkElementExtension.cs" />
+    <Compile Include="Utils\Extensions\IconExtension.cs" />
+    <Compile Include="Models\DirectoryItem.cs" />
+    <Compile Include="Models\ObservableRangeCollection.cs" />
+    <Compile Include="Models\ProgressInfo.cs" />
+    <Compile Include="Utils\GHBinaryTools.cs" />
+    <Compile Include="Utils\IconTools.cs" />
+    <Compile Include="Utils\PaletteTools.cs" />
+    <Compile Include="Utils\SettingTools.cs" />
+    <Compile Include="Utils\Mediator.cs" />
+    <Compile Include="Utils\TypeTools.cs" />
+    <Compile Include="ViewModel\MemoryViewModel.cs" />
+    <Compile Include="ViewModel\PACExplorerViewModel.cs" />
+    <Compile Include="ViewModel\PaletteEditorViewModel.cs" />
+    <Compile Include="ViewModel\ChooseProcessViewModel.cs" />
+    <Compile Include="View\AttachedBehaviors.cs" />
+    <Compile Include="Models\ColorItem.cs" />
+    <Compile Include="View\CustomControls\ZoomBorder.cs" />
+    <Compile Include="View\UserControls\Dialogs\ChooseProcessDialog.xaml.cs">
+      <DependentUpon>ChooseProcessDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Dialogs\ColorPickerDialog.xaml.cs">
+      <DependentUpon>ColorPickerDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Dialogs\PACItemSelectorDialog.xaml.cs">
+      <DependentUpon>PACItemSelectorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Panels\AboutPanel.xaml.cs">
+      <DependentUpon>AboutPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Panels\ExplorerNavBar.xaml.cs">
+      <DependentUpon>ExplorerNavBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Panels\HackControlPanel.xaml.cs">
+      <DependentUpon>HackControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Panels\ListBoxExplorer.xaml.cs">
+      <DependentUpon>ListBoxExplorer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Panels\ProcessControlPanel.xaml.cs">
+      <DependentUpon>ProcessControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Panels\MemoryControlPanel.xaml.cs">
+      <DependentUpon>MemoryControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Panels\PACExplorerPanel.xaml.cs">
+      <DependentUpon>PACExplorerPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Drawers\PresetDrawer.xaml.cs">
+      <DependentUpon>PresetDrawer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Panels\PaletteEditorPanel.xaml.cs">
+      <DependentUpon>PaletteEditorPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Panels\SettingsControlPanel.xaml.cs">
+      <DependentUpon>SettingsControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Panels\TreeViewExplorer.xaml.cs">
+      <DependentUpon>TreeViewExplorer.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Components\Command.cs" />
+    <Compile Include="Utils\Dialogs.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\UserControls\Dialogs\ChooseProcessDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Dialogs\ColorPickerDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Dialogs\PACItemSelectorDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Panels\AboutPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Panels\ExplorerNavBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Panels\HackControlPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Panels\ListBoxExplorer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Panels\ProcessControlPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Panels\MemoryControlPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Panels\PACExplorerPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Drawers\PresetDrawer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Panels\PaletteEditorPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Panels\SettingsControlPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\Panels\TreeViewExplorer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="App.manifest" />
+    <None Include="Resources\ArcSys.ghm" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Projects\ExtendedWPFToolkit\ExtendedWPFToolkit\ExtendedWPFToolkit.csproj">
+      <Project>{e1b356bc-9156-4379-b166-72e88453480b}</Project>
+      <Name>ExtendedWPFToolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Projects\MaterialDesignInXamlToolkit\MaterialDesignColors.Wpf\MaterialDesignColors.Wpf.csproj">
+      <Project>{e12ea9d9-cf5e-4e71-ba78-b24c958e402e}</Project>
+      <Name>MaterialDesignColors.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Projects\MaterialDesignInXamlToolkit\MaterialDesignThemes.Wpf\MaterialDesignThemes.Wpf.csproj">
+      <Project>{1a34fd97-fc06-4726-a447-47e21f5b5e55}</Project>
+      <Name>MaterialDesignThemes.Wpf</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props'))" />
+    <Error Condition="!Exists('..\packages\Fody.6.3.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.3.0\build\Fody.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <DisableFody Condition="'$(Configuration)' == 'Debug'">true</DisableFody>
+    <PostBuildEvent>if $(ConfigurationName) == Release "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\PreEmptiveSolutions\DotfuscatorCE\dotfuscatorCLI.exe" /q /p="SourceDirectory=$(TargetDir),SourceFile=$(TargetFileName)" "$(ProjectDir)Dotfuscator.xml"
+if $(ConfigurationName) == Release "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\ConfuserEx\Confuser.CLI.exe" -n "$(ProjectDir)ConfuserEx.crproj"</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\Fody.6.3.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.3.0\build\Fody.targets')" />
+</Project>

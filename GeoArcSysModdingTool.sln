@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoArcSysModdingTool", "GeoArcSysModdingTool\GeoArcSysModdingTool.csproj", "{17F9C459-739F-40F7-8B10-82078E7C6652}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedWPFToolkit", "..\..\..\Projects\ExtendedWPFToolkit\ExtendedWPFToolkit\ExtendedWPFToolkit.csproj", "{E1B356BC-9156-4379-B166-72E88453480B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaterialDesignColors.Wpf", "..\..\..\Projects\MaterialDesignInXamlToolkit\MaterialDesignColors.Wpf\MaterialDesignColors.Wpf.csproj", "{E12EA9D9-CF5E-4E71-BA78-B24C958E402E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaterialDesignThemes.Wpf", "..\..\..\Projects\MaterialDesignInXamlToolkit\MaterialDesignThemes.Wpf\MaterialDesignThemes.Wpf.csproj", "{1A34FD97-FC06-4726-A447-47E21F5B5E55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17F9C459-739F-40F7-8B10-82078E7C6652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17F9C459-739F-40F7-8B10-82078E7C6652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17F9C459-739F-40F7-8B10-82078E7C6652}.Debug|x64.ActiveCfg = Debug|x64
+		{17F9C459-739F-40F7-8B10-82078E7C6652}.Debug|x64.Build.0 = Debug|x64
+		{17F9C459-739F-40F7-8B10-82078E7C6652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17F9C459-739F-40F7-8B10-82078E7C6652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17F9C459-739F-40F7-8B10-82078E7C6652}.Release|x64.ActiveCfg = Release|x64
+		{17F9C459-739F-40F7-8B10-82078E7C6652}.Release|x64.Build.0 = Release|x64
+		{E1B356BC-9156-4379-B166-72E88453480B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1B356BC-9156-4379-B166-72E88453480B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1B356BC-9156-4379-B166-72E88453480B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E1B356BC-9156-4379-B166-72E88453480B}.Debug|x64.Build.0 = Debug|Any CPU
+		{E1B356BC-9156-4379-B166-72E88453480B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1B356BC-9156-4379-B166-72E88453480B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1B356BC-9156-4379-B166-72E88453480B}.Release|x64.ActiveCfg = Release|Any CPU
+		{E1B356BC-9156-4379-B166-72E88453480B}.Release|x64.Build.0 = Release|Any CPU
+		{E12EA9D9-CF5E-4E71-BA78-B24C958E402E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E12EA9D9-CF5E-4E71-BA78-B24C958E402E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E12EA9D9-CF5E-4E71-BA78-B24C958E402E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E12EA9D9-CF5E-4E71-BA78-B24C958E402E}.Debug|x64.Build.0 = Debug|Any CPU
+		{E12EA9D9-CF5E-4E71-BA78-B24C958E402E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E12EA9D9-CF5E-4E71-BA78-B24C958E402E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E12EA9D9-CF5E-4E71-BA78-B24C958E402E}.Release|x64.ActiveCfg = Release|Any CPU
+		{E12EA9D9-CF5E-4E71-BA78-B24C958E402E}.Release|x64.Build.0 = Release|Any CPU
+		{1A34FD97-FC06-4726-A447-47E21F5B5E55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A34FD97-FC06-4726-A447-47E21F5B5E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A34FD97-FC06-4726-A447-47E21F5B5E55}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1A34FD97-FC06-4726-A447-47E21F5B5E55}.Debug|x64.Build.0 = Debug|Any CPU
+		{1A34FD97-FC06-4726-A447-47E21F5B5E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A34FD97-FC06-4726-A447-47E21F5B5E55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A34FD97-FC06-4726-A447-47E21F5B5E55}.Release|x64.ActiveCfg = Release|Any CPU
+		{1A34FD97-FC06-4726-A447-47E21F5B5E55}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A073DA5-93BA-46F8-A798-0546F55DEA06}
+	EndGlobalSection
+EndGlobal

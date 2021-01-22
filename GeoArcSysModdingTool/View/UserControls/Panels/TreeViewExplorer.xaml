@@ -1,0 +1,344 @@
+﻿<UserControl x:Class="GeoArcSysModdingTool.View.UserControls.Panels.TreeViewExplorer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:view="clr-namespace:GeoArcSysModdingTool.View"
+             xmlns:models="clr-namespace:GeoArcSysModdingTool.Models"
+             xmlns:conv="clr-namespace:GeoArcSysModdingTool.Converters"
+             Background="#50000000"
+             IsTabStop="True"
+             Focusable="True"
+             FocusVisualStyle="{x:Null}"
+             MouseDown="TreeViewExplorerControl_MouseDown"
+             x:Name="TreeViewExplorerControl">
+    <Grid>
+        <Grid.Resources>
+            <conv:DirItemToThumbnailConverter x:Key="DirItemToSmallThumbnailConverter" Large="False" />
+            <conv:DataTypeConverter x:Key="DataTypeConverter" />
+            <conv:PaletteHIPToBoolConverter x:Key="PaletteHIPToBoolConverter" />
+        </Grid.Resources>
+        <TreeView x:Name="TreeView"
+                  Style="{StaticResource MaterialDesignTreeView}"
+                  VirtualizingPanel.IsVirtualizing="{Binding UseVirtualization, ElementName=TreeViewExplorerControl}"
+                  VirtualizingPanel.IsContainerVirtualizable="{Binding UseVirtualization, ElementName=TreeViewExplorerControl}"
+                  VirtualizingPanel.VirtualizationMode="Recycling"
+                  VirtualizingPanel.CacheLength="5"
+                  VirtualizingPanel.CacheLengthUnit="Item"
+                  VirtualizingPanel.ScrollUnit="Item"
+                  ScrollViewer.CanContentScroll="True"
+                  SelectedItemChanged="TreeView_SelectedItemChanged"
+                  view:TreeViewHelper.SelectedItem="{Binding SelectedItem, ElementName=TreeViewExplorerControl}">
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="TreeViewItem" BasedOn="{StaticResource MaterialDesignTreeViewItem}">
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                    <Setter Property="Padding" Value="1" />
+                    <Setter Property="Cursor" Value="Hand" />
+                    <Setter Property="MinHeight" Value="1" />
+                    <Setter Property="MinWidth" Value="1" />
+                    <Setter Property="HorizontalAlignment" Value="Left" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                    <Setter Property="Foreground" Value="{StaticResource MaterialDesignBody}" />
+                    <Setter Property="view:TreeViewItemBehavior.SelectedCommand"
+                            Value="{Binding SelectImageCommand, ElementName=TreeViewExplorerControl}" />
+                    <Setter Property="view:TreeViewItemExpandedCollapseBehavior.ExpandCollapseCommand"
+                            Value="{Binding ExpandCollapseCommand, ElementName=TreeViewExplorerControl}" />
+                    <Setter Property="view:TreeViewItemBehavior.MouseLeftButtonUpCommand"
+                            Value="{Binding OpenDirectoryCommand, ElementName=TreeViewExplorerControl}" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TreeViewItem}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="ExpansionStates">
+                                            <VisualStateGroup.Transitions>
+                                                <VisualTransition GeneratedDuration="0" To="Expanded">
+                                                    <VisualTransition.GeneratedEasingFunction>
+                                                        <CubicEase EasingMode="EaseOut" />
+                                                    </VisualTransition.GeneratedEasingFunction>
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames
+                                                            Storyboard.TargetName="ItemsHost"
+                                                            Storyboard.TargetProperty="Visibility">
+                                                            <DiscreteObjectKeyFrame KeyTime="0"
+                                                                Value="{x:Static Visibility.Visible}" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                                         Storyboard.TargetName="ItemsHost" To="1"
+                                                                         Duration="0:0:0.1" />
+                                                        <DoubleAnimation Storyboard.TargetProperty="Scale"
+                                                                         Storyboard.TargetName="ScaleHost" To="1"
+                                                                         Duration="0:0:0.1" />
+                                                    </Storyboard>
+                                                </VisualTransition>
+                                                <VisualTransition GeneratedDuration="0" To="Collapsed">
+                                                    <VisualTransition.GeneratedEasingFunction>
+                                                        <CubicEase EasingMode="EaseOut" />
+                                                    </VisualTransition.GeneratedEasingFunction>
+                                                    <Storyboard>
+                                                        <ObjectAnimationUsingKeyFrames
+                                                            Storyboard.TargetName="ItemsHost"
+                                                            Storyboard.TargetProperty="Visibility">
+                                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.1"
+                                                                Value="{x:Static Visibility.Collapsed}" />
+                                                        </ObjectAnimationUsingKeyFrames>
+                                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                                         Storyboard.TargetName="ItemsHost" To="0"
+                                                                         Duration="0:0:0.1" />
+                                                        <DoubleAnimation Storyboard.TargetProperty="Scale"
+                                                                         Storyboard.TargetName="ScaleHost" To="0"
+                                                                         Duration="0:0:0.1" />
+                                                    </Storyboard>
+                                                </VisualTransition>
+                                            </VisualStateGroup.Transitions>
+                                            <VisualState x:Name="Expanded">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                                     Storyboard.TargetName="ItemsHost" To="1"
+                                                                     Duration="0" />
+                                                    <DoubleAnimation Storyboard.TargetProperty="Scale"
+                                                                     Storyboard.TargetName="ScaleHost" To="1"
+                                                                     Duration="0:0:0.1" />
+                                                    <ObjectAnimationUsingKeyFrames
+                                                        Storyboard.TargetName="ItemsHost"
+                                                        Storyboard.TargetProperty="Visibility">
+                                                        <DiscreteObjectKeyFrame KeyTime="0"
+                                                            Value="{x:Static Visibility.Visible}" />
+                                                    </ObjectAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Collapsed">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                                     Storyboard.TargetName="ItemsHost" To="0"
+                                                                     Duration="0" />
+                                                    <DoubleAnimation Storyboard.TargetProperty="Scale"
+                                                                     Storyboard.TargetName="ScaleHost" To="0"
+                                                                     Duration="0:0:0.1" />
+                                                    <ObjectAnimationUsingKeyFrames
+                                                        Storyboard.TargetName="ItemsHost"
+                                                        Storyboard.TargetProperty="Visibility">
+                                                        <DiscreteObjectKeyFrame KeyTime="0"
+                                                            Value="{x:Static Visibility.Collapsed}" />
+                                                    </ObjectAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <materialDesign:ScaleHost x:Name="ScaleHost" />
+                                    <ToggleButton x:Name="Expander" ClickMode="Press"
+                                                  IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
+                                                  Style="{StaticResource MaterialDesignExpandCollapseToggleStyle}"
+                                                  Foreground="{TemplateBinding Foreground}"
+                                                  Margin="8 0 8 0"
+                                                  VerticalAlignment="Center" />
+
+                                    <Border x:Name="HighlightBorder"
+                                            Grid.Column="1" Grid.ColumnSpan="2"
+                                            IsHitTestVisible="False"
+                                            Opacity="0"
+                                            Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" />
+
+                                    <Grid Grid.Column="1" Grid.ColumnSpan="2" x:Name="ContentGrid"
+                                          Background="Transparent">
+                                        <materialDesign:Ripple
+                                            Feedback="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}"
+                                            Focusable="False"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            Padding="{TemplateBinding Padding}">
+                                            <ContentPresenter x:Name="PART_Header" ContentSource="Header" />
+                                        </materialDesign:Ripple>
+                                    </Grid>
+
+                                    <ContentControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                                                    x:Name="AdditionalContentControl"
+                                                    Content="{TemplateBinding Header}"
+                                                    ContentTemplate="{Binding RelativeSource={RelativeSource Self}, Path=(materialDesign:TreeViewAssist.AdditionalTemplate)}"
+                                                    ContentTemplateSelector="{Binding RelativeSource={RelativeSource Self}, Path=(materialDesign:TreeViewAssist.AdditionalTemplateSelector)}"
+                                                    Visibility="Collapsed" />
+
+                                    <StackPanel Grid.Column="1" Grid.Row="2"
+                                                x:Name="ItemsPanel"
+                                                Margin="-16 0 0 0"
+                                                Grid.ColumnSpan="2">
+                                        <StackPanel.Height>
+                                            <MultiBinding Converter="{StaticResource MathMlpMultipleConverter}">
+                                                <Binding ElementName="ItemsHost" Path="ActualHeight" />
+                                                <Binding ElementName="ScaleHost" Path="Scale" />
+                                            </MultiBinding>
+                                        </StackPanel.Height>
+                                        <ItemsPresenter x:Name="ItemsHost"
+                                                        VerticalAlignment="Top"
+                                                        Opacity="0"
+                                                        Visibility="Collapsed" />
+                                    </StackPanel>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding RelativeSource={RelativeSource Self}, Path=(materialDesign:TreeViewAssist.AdditionalTemplate), Converter={StaticResource NullableToVisibilityConverter}, Mode=OneWay}"
+                                        Value="Visible">
+                                        <Setter TargetName="AdditionalContentControl" Property="Visibility"
+                                                Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger
+                                        Binding="{Binding RelativeSource={RelativeSource Self}, Path=(materialDesign:TreeViewAssist.AdditionalTemplateSelector), Converter={StaticResource NullableToVisibilityConverter}, Mode=OneWay}"
+                                        Value="Visible">
+                                        <Setter TargetName="AdditionalContentControl" Property="Visibility"
+                                                Value="Visible" />
+                                    </DataTrigger>
+                                    <Trigger Property="HasItems" Value="false">
+                                        <Setter Property="Visibility" TargetName="Expander" Value="Hidden" />
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Opacity" Value=".56" />
+                                    </Trigger>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition
+                                                Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}"
+                                                Value="True" />
+                                            <Condition
+                                                Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}"
+                                                Value="False" />
+                                            <Condition
+                                                Binding="{Binding IsKeyboardFocusWithin, ElementName=TreeViewExplorerControl}"
+                                                Value="True" />
+                                        </MultiDataTrigger.Conditions>
+                                        <MultiDataTrigger.Setters>
+                                            <Setter TargetName="HighlightBorder" Property="Opacity" Value="0.3" />
+                                        </MultiDataTrigger.Setters>
+                                    </MultiDataTrigger>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition
+                                                Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}"
+                                                Value="True" />
+                                            <Condition
+                                                Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}"
+                                                Value="False" />
+                                            <Condition
+                                                Binding="{Binding IsKeyboardFocusWithin, ElementName=TreeViewExplorerControl}"
+                                                Value="False" />
+                                        </MultiDataTrigger.Conditions>
+                                        <MultiDataTrigger.Setters>
+                                            <Setter TargetName="HighlightBorder" Property="Opacity" Value="0.1" />
+                                        </MultiDataTrigger.Setters>
+                                    </MultiDataTrigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsSelected" Value="False" />
+                                            <Condition Property="IsMouseOver" Value="True" />
+                                        </MultiTrigger.Conditions>
+                                        <MultiTrigger.Setters>
+                                            <Setter TargetName="HighlightBorder" Property="Opacity" Value="0.2" />
+                                        </MultiTrigger.Setters>
+                                    </MultiTrigger>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsSelected" Value="True" />
+                                            <Condition Property="IsMouseOver" Value="True" />
+                                        </MultiTrigger.Conditions>
+                                        <MultiTrigger.Setters>
+                                            <Setter TargetName="HighlightBorder" Property="Opacity" Value="0.4" />
+                                        </MultiTrigger.Setters>
+                                    </MultiTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="ContextMenu" Value="{StaticResource DirItemContextMenu}" />
+                    <EventSetter Event="ContextMenuOpening" Handler="DirectoryItem_ContextMenuOpening" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding MenuItems.Count}" Value="0">
+                            <Setter Property="ContextMenu" Value="{x:Null}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TreeView.ItemContainerStyle>
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type models:DirectoryItem}"
+                                          ItemsSource="{Binding Items}">
+                    <ContentControl DataContext="{Binding }" Focusable="False">
+                        <ContentControl.Resources>
+                            <StackPanel x:Key="ImageAndNamePanel"
+                                        Orientation="Horizontal"
+                                        MaxHeight="18"
+                                        Visibility="{Binding Visibility}">
+                                <Image Margin="0,1,4,1"
+                                       MinHeight="0" MinWidth="0"
+                                       VerticalAlignment="Center"
+                                       RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                       RenderOptions.EdgeMode="Aliased">
+                                    <Image.Source>
+                                        <MultiBinding Converter="{StaticResource DirItemToSmallThumbnailConverter}">
+                                            <Binding Path="." Mode="OneWay" />
+                                            <Binding Path="ShowThumbnail" Mode="OneWay" />
+                                        </MultiBinding>
+                                    </Image.Source>
+                                    <Image.CacheMode>
+                                        <BitmapCache EnableClearType="False"
+                                                     RenderAtScale="1"
+                                                     SnapsToDevicePixels="False" />
+                                    </Image.CacheMode>
+                                </Image>
+                                <TextBlock Text="{Binding Name}" VerticalAlignment="Center">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Foreground" Value="{Binding TextColor}" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding TextColor}" Value="{x:Null}">
+                                                    <Setter Property="Foreground"
+                                                            Value="{StaticResource MaterialDesignBody}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </StackPanel>
+                            <ControlTemplate x:Key="CheckBoxTemplate">
+                                <CheckBox Content="{StaticResource ImageAndNamePanel}"
+                                          IsChecked="{Binding IsChecked}"
+                                          Command="{Binding ToggleDirectoryItemCommand, ElementName=TreeViewExplorerControl}"
+                                          CommandParameter="{Binding }" />
+                            </ControlTemplate>
+                            <ControlTemplate x:Key="RegularTemplate">
+                                <ContentControl Content="{StaticResource ImageAndNamePanel}" Focusable="False" />
+                            </ControlTemplate>
+                        </ContentControl.Resources>
+                        <ContentControl.Style>
+                            <Style TargetType="ContentControl">
+                                <Setter Property="Template" Value="{StaticResource RegularTemplate}" />
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition
+                                                Binding="{Binding UseCheckBox, ElementName=TreeViewExplorerControl}"
+                                                Value="True" />
+                                            <Condition
+                                                Binding="{Binding Item, Converter={StaticResource PaletteHIPToBoolConverter}}"
+                                                Value="True" />
+                                        </MultiDataTrigger.Conditions>
+                                        <MultiDataTrigger.Setters>
+                                            <Setter Property="Template" Value="{StaticResource CheckBoxTemplate}" />
+                                        </MultiDataTrigger.Setters>
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ContentControl.Style>
+                    </ContentControl>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+    </Grid>
+</UserControl>
