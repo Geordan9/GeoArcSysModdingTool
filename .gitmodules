@@ -1,0 +1,6 @@
+[submodule "lib/GHLib"]
+	path = lib/GHLib
+	url = git://github.com/Geordan9/GHLib.git
+[submodule "lib/ArcSysAPI"]
+	path = lib/ArcSysAPI
+	url = git://github.com/Geordan9/ArcSysAPI.git
