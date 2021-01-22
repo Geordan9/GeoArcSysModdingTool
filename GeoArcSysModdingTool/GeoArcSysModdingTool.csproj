@@ -373,6 +373,22 @@
       <Project>{1a34fd97-fc06-4726-a447-47e21f5b5e55}</Project>
       <Name>MaterialDesignThemes.Wpf</Name>
     </ProjectReference>
+    <ProjectReference Include="..\lib\ArcSysAPI\ArcSysAPI\ArcSysAPI.csproj">
+      <Project>{78146821-fbc1-43af-b515-be2822cbbcbb}</Project>
+      <Name>ArcSysAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lib\GHLib\GHLib\GHLib.csproj">
+      <Project>{df9d041f-0974-4a6f-bc30-274e0f915d89}</Project>
+      <Name>GHLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lib\GHLib\lib\MemoryLib\MemoryLib\MemoryLib.csproj">
+      <Project>{2c4d35dd-4715-4a66-9d2c-9feac0ce3f4a}</Project>
+      <Name>MemoryLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lib\GHLib\lib\ProcessLib\ProcessLib\ProcessLib.csproj">
+      <Project>{8579e524-8611-43de-a7c4-5d7d5f7e0308}</Project>
+      <Name>ProcessLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -384,8 +400,8 @@
   </Target>
   <PropertyGroup>
     <DisableFody Condition="'$(Configuration)' == 'Debug'">true</DisableFody>
-    <PostBuildEvent>if $(ConfigurationName) == Release "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\PreEmptiveSolutions\DotfuscatorCE\dotfuscatorCLI.exe" /q /p="SourceDirectory=$(TargetDir),SourceFile=$(TargetFileName)" "$(ProjectDir)Dotfuscator.xml"
-if $(ConfigurationName) == Release "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\ConfuserEx\Confuser.CLI.exe" -n "$(ProjectDir)ConfuserEx.crproj"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\Fody.6.3.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.3.0\build\Fody.targets')" />
 </Project>

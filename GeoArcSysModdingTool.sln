@@ -11,6 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaterialDesignColors.Wpf", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaterialDesignThemes.Wpf", "..\..\..\Projects\MaterialDesignInXamlToolkit\MaterialDesignThemes.Wpf\MaterialDesignThemes.Wpf.csproj", "{1A34FD97-FC06-4726-A447-47E21F5B5E55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GHLib", "lib\GHLib\GHLib\GHLib.csproj", "{DF9D041F-0974-4A6F-BC30-274E0F915D89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryLib", "lib\GHLib\lib\MemoryLib\MemoryLib\MemoryLib.csproj", "{2C4D35DD-4715-4A66-9D2C-9FEAC0CE3F4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessLib", "lib\GHLib\lib\ProcessLib\ProcessLib\ProcessLib.csproj", "{8579E524-8611-43DE-A7C4-5D7D5F7E0308}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcSysAPI", "lib\ArcSysAPI\ArcSysAPI\ArcSysAPI.csproj", "{78146821-FBC1-43AF-B515-BE2822CBBCBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +59,38 @@ Global
 		{1A34FD97-FC06-4726-A447-47E21F5B5E55}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1A34FD97-FC06-4726-A447-47E21F5B5E55}.Release|x64.ActiveCfg = Release|Any CPU
 		{1A34FD97-FC06-4726-A447-47E21F5B5E55}.Release|x64.Build.0 = Release|Any CPU
+		{DF9D041F-0974-4A6F-BC30-274E0F915D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF9D041F-0974-4A6F-BC30-274E0F915D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF9D041F-0974-4A6F-BC30-274E0F915D89}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DF9D041F-0974-4A6F-BC30-274E0F915D89}.Debug|x64.Build.0 = Debug|Any CPU
+		{DF9D041F-0974-4A6F-BC30-274E0F915D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF9D041F-0974-4A6F-BC30-274E0F915D89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF9D041F-0974-4A6F-BC30-274E0F915D89}.Release|x64.ActiveCfg = Release|Any CPU
+		{DF9D041F-0974-4A6F-BC30-274E0F915D89}.Release|x64.Build.0 = Release|Any CPU
+		{2C4D35DD-4715-4A66-9D2C-9FEAC0CE3F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C4D35DD-4715-4A66-9D2C-9FEAC0CE3F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C4D35DD-4715-4A66-9D2C-9FEAC0CE3F4A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2C4D35DD-4715-4A66-9D2C-9FEAC0CE3F4A}.Debug|x64.Build.0 = Debug|Any CPU
+		{2C4D35DD-4715-4A66-9D2C-9FEAC0CE3F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C4D35DD-4715-4A66-9D2C-9FEAC0CE3F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C4D35DD-4715-4A66-9D2C-9FEAC0CE3F4A}.Release|x64.ActiveCfg = Release|Any CPU
+		{2C4D35DD-4715-4A66-9D2C-9FEAC0CE3F4A}.Release|x64.Build.0 = Release|Any CPU
+		{8579E524-8611-43DE-A7C4-5D7D5F7E0308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8579E524-8611-43DE-A7C4-5D7D5F7E0308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8579E524-8611-43DE-A7C4-5D7D5F7E0308}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8579E524-8611-43DE-A7C4-5D7D5F7E0308}.Debug|x64.Build.0 = Debug|Any CPU
+		{8579E524-8611-43DE-A7C4-5D7D5F7E0308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8579E524-8611-43DE-A7C4-5D7D5F7E0308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8579E524-8611-43DE-A7C4-5D7D5F7E0308}.Release|x64.ActiveCfg = Release|Any CPU
+		{8579E524-8611-43DE-A7C4-5D7D5F7E0308}.Release|x64.Build.0 = Release|Any CPU
+		{78146821-FBC1-43AF-B515-BE2822CBBCBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78146821-FBC1-43AF-B515-BE2822CBBCBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78146821-FBC1-43AF-B515-BE2822CBBCBB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{78146821-FBC1-43AF-B515-BE2822CBBCBB}.Debug|x64.Build.0 = Debug|Any CPU
+		{78146821-FBC1-43AF-B515-BE2822CBBCBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78146821-FBC1-43AF-B515-BE2822CBBCBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78146821-FBC1-43AF-B515-BE2822CBBCBB}.Release|x64.ActiveCfg = Release|Any CPU
+		{78146821-FBC1-43AF-B515-BE2822CBBCBB}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
