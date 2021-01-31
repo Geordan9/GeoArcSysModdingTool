@@ -255,8 +255,10 @@ namespace GeoArcSysModdingTool.ViewModel
                 ExploreItem(item, true);
                 CurDirItem = item;
             }
-
-            SetItemActive(item.Item);
+            else
+            {
+                SetItemActive(item.Item);
+            }
 
             if (item.Item is FileInfo)
             {
